@@ -1,0 +1,17 @@
+{
+	"manifest_version": 2,
+	"name": "UbiCollections",
+	"description": "Highlight collections on the map",
+	"version": "1.7",
+	"content_scripts": [ {
+	      "all_frames": false,
+	      "js": [ "script.js" ],
+	      "matches": [ "http://www.tsotesting.com/en/play", "http://www.thesettlersonline.com.br/pt/jogar", "http://www.thesettlersonline.com/en/play", "http://www.thesettlersonline.net/en/play", "http://www.thesettlersonline.fr/fr/jouer", "http://thesettlersonline.cz/cs/play", "http://www.diesiedleronline.de/de/spielen", "http://www.thesettlersonline.gr/el/play", "http://www.thesettlersonline.it/it/gioca", "http://www.juego-thesettlersonline.com/es/jugar", "http://www.thesettlersonline.nl/nl/play", "http://www.thesettlersonline.pl/pl/graj", "http://www.thesettlersonline.ro/ro/play", "http://www.thesettlersonline.ru/ru/play", "http://www.thesettlersonline.es/es/jugar" ],
+	      "run_at": "document_idle"
+	   } ],
+	"permissions": [
+		"unlimitedStorage",
+		"notifications"
+	]
+}
+

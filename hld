@@ -1,0 +1,41 @@
+#!/usr/bin/perl
+use strict;
+use Socket;
+
+my %o=(qw(-f 15 -l 127.0.0.1 -p 9000 -d .),@ARGV);
+
+close STDIN;close STDOUT;
+
+socket c, PF_INET, SOCK_STREAM, getprotobyname 'tcp' or die "socket: $!";
+setsockopt c, SOL_SOCKET, SO_REUSEADDR, pack l=>1 or die "setsockopt: $!";
+bind c, sockaddr_in $o{-p}, scalar gethostbyname $o{-l} or die "bind: $!";
+listen c, SOMAXCONN or die "listen: $!";
+
+$SIG{CHLD}='IGNORE';
+$SIG{ALRM}=sub{exit};
+
+my %data=(pic=>'herbs.png', bin=>'pack.bin');
+for(keys%data){
+  local $/;
+  open my $f, "$o{-d}/$data{$_}";
+  $data{$_}=<$f>;
+  close $f;
+}
+my $hash=do"$o{-d}/hash.pl";
+$data{$hash->{crossdomain}='xml'}='<?xml version="1.0"?><cross-domain-policy><site-control permitted-cross-domain-policies="all"/><allow-access-from domain="*" /></cross-domain-policy>';
+my %ct=qw(xml text/xml pic image/png bin application/octet-stream);
+
+for(1..$o{-f}){next if fork;{
+      accept z,c;
+      if(fork){close z;redo}
+      else{
+        select z;$|=close c;alarm 30; 
+        (my$uri=(split ' ',<z>,3)[1])=~m,(?:([^/]+)\.\w+)$,;
+        print STDERR "$$: $1 $uri\n";
+        print "HTTP/1.1 ".($_
+          ? "200\nContent-Type: $ct{$_}\nContent-Length: ".length($data{$_})."\n\n".$data{$_}
+          : "302\nLocation: https://ubistatic-a.akamaihd.net/0018/live$uri\n\n"
+        ) for $hash->{$1};
+        exit;
+      }
+}}
