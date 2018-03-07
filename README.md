@@ -21,11 +21,13 @@ hash.pl - picture names imported from http://tsomaps.com/soft/config.xml (UbiCol
 1) install python3
 2) install mitmproxy
 3) in linux set in browser configuration or over shell "export" a http,https proxy "127.0.0.1:8080"
-   or
-   in macos run in terminal (replace full path), set proxy only for TSO hosts:
-   sudo networksetup -setautoproxystate Wi-Fi off
-   sudo networksetup -setautoproxyurl Wi-Fi file:///Users/[your_username]/[path]/proxy.pac
-   sudo networksetup -getautoproxyurl Wi-Fi
+or
+in macos run in terminal (replace full path), set proxy only for TSO hosts:
+```shell-script
+sudo networksetup -setautoproxystate Wi-Fi off
+sudo networksetup -setautoproxyurl Wi-Fi file:///Users/[your_username]/[path]/proxy.pac
+sudo networksetup -getautoproxyurl Wi-Fi
+```
 4) run in terminal (replace full path):
 cd [path]/tsohld/
 mitmdump -s ./mitmdump-tsoscript.py
