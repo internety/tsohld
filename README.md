@@ -16,7 +16,7 @@ cd /[path]/tsohld/
 3) play
 
 p.s.
-hash.pl - picture names imported from http://tsomaps.com/soft/config.xml (UbiCollect1_8_3_Windows config ver.57)
+to hash.pl pictures names imported from http://tsomaps.com/soft/config.xml (UbiCollect1_8_3_Windows config ver.57)
 
 
 # or play via mitmproxy
@@ -37,3 +37,7 @@ mitmdump -s ./mitmdump-tsoscript.py
 ```
 5) in brwoser address-bar go "mitm.it" and install certificate
 6) play
+
+p.s.
+in next time run only 4) and 6)
+to script pictures names imported from http://tsomaps.com/soft/config.xml (UbiCollect1_8_3_Windows config ver.57)
