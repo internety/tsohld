@@ -8,8 +8,10 @@ highlight collections on the map the settlers online in linux/macos
 1) in browser in dashboard of plugin [tampermonkey, greasemonkey, violentmonkey] add and enable script.js or tsohld.user.js
 
 2) run in terminal (replace full path):
+```bash
 cd [path]/tsohld/
 ./hld &
+```
 
 3) play
 
