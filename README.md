@@ -9,7 +9,7 @@ highlight collections on the map the settlers online in linux/macos
 
 2) run in terminal (replace full path):
 ```bash
-cd [path]/tsohld/
+cd /[path]/tsohld/
 ./hld &
 ```
 
@@ -31,7 +31,9 @@ sudo networksetup -setautoproxyurl Wi-Fi file:///Users/[your_username]/[path]/pr
 sudo networksetup -getautoproxyurl Wi-Fi
 ```
 4) run in terminal (replace full path):
-cd [path]/tsohld/
+```bash
+cd /[path]/tsohld/
 mitmdump -s ./mitmdump-tsoscript.py
+```
 5) in brwoser address-bar go "mitm.it" and install certificate
 6) play
