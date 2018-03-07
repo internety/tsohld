@@ -39,5 +39,5 @@ mitmdump -s ./mitmdump-tsoscript.py
 6) play
 
 p.s.
-in next time run only 4) and 6)
+in next time run only 4) and 6).
 to script pictures names imported from http://tsomaps.com/soft/config.xml (UbiCollect1_8_3_Windows config ver.57)
